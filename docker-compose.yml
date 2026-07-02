@@ -1,0 +1,10 @@
+services:
+  hetzner-cloud-sync-server-agent:
+    image: ghcr.io/${GITHUB_REPOSITORY_OWNER:-your-github-username}/hetzner-cloud-sync-server-agent:${IMAGE_TAG:-latest}
+    container_name: hetzner-cloud-sync-server-agent
+    pull_policy: always
+    env_file:
+      - stack.env
+    ports:
+      - "8080:8080"
+    restart: unless-stopped
